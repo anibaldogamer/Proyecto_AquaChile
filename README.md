@@ -35,13 +35,8 @@ El sistema permite gestionar de forma ordenada y centralizada el flujo de ingres
    * Transición fluida entre el Dashboard y el Formulario mediante estado local sin recargar la página.
 
 ---
-## 📸 Capturas de Pantalla
-
-### 1. Panel de Control (Dashboard)
-![Dashboard AquaChile](../AVANCES-AQUACHILE/propuesta_dashboard.png)
-
-### 2. Formulario de Registro de Candidato
-![Formulario de Registro](../AVANCES-AQUACHILE/propuesta_formulario.png)
+![Dashboard AquaChile](./AquaChile/AVANCES-AQUACHILE/propuesta_dashboard.png)
+![Formulario de Registro](./AquaChile/AVANCES-AQUACHILE/propuesta_formulario.png)
 
 ---
 
