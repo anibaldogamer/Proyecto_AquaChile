@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="solicitud_evaluacion" directorySegmentName="seg_0" id="CF3F8167-053B-854B-BAA6-CB9352BA9D93">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="id_solicitud" id="0191129D-2536-578E-AB4C-F2904713346D">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="cargo" id="32A146CF-C583-06D3-92F7-A25257558FC0">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="observaciones" id="422970F3-2D2A-9765-20D0-6B9E432229B9">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_responsable" id="566D18E7-97C2-3A42-D3B8-93E40AB05815">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="estado" id="6452FA5B-BA20-1878-825D-F2FC4305FEB7">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<defaultValue>&apos;Pendiente&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="id_candidato" id="8BA0EC62-E67C-9B18-0FBD-F8A594EF4A25">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="familia_cargo" id="A691D787-A1C3-7419-4500-E8ADE4485CD0">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="fecha_solicitud" id="D981D688-1495-3B88-C1F2-22DCB4AF33C5">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<defaultValue>CURRENT_DATE</defaultValue>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="idx_solicitud_estado" id="25455F4F-F437-B0DB-A257-DCD9C135BA0A">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="idx_solicitud_candidato" id="29AE05D1-F622-74A1-6CF0-3E80889470F0">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="idx_solicitud_fecha" id="30067AAE-E342-47DC-86A4-1C55F452EA57">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="idx_solicitud_responsable" id="ADB65A56-87A9-35D5-EC2E-C08830664DFE">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="solicitud_evaluacion_responsable_FK" id="64908952-AD88-B10A-2DEE-BC6C062934DB">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="solicitud_evaluacion_candidato_FK" id="930F782B-84A7-D679-4E05-FF8C72FFC74A">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="solicitud_evaluacion_PK" id="7AE0D99F-DAFD-B099-FCDE-2E1A7596818E">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

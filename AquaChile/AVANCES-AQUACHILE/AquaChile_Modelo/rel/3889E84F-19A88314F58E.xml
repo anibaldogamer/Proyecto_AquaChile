@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="3889E84F-3FA0-92DF-A533-19A88314F58E" mainViewID="6CD12B01-6353-22C8-0A95-C71142D1345E">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:32:49 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>01F6E6D1-21D0-CFBD-ABDD-3988D1813575</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>01_schema_postgresql.sql</fileName>
+<pathName>C:\Users\bssae\Desktop\aqchle\aquachile_modelo</pathName>
+<dbType>17</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

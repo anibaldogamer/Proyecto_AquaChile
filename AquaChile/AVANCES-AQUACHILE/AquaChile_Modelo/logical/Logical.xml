@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="6937B42C-DAAC-D832-D6F0-79D231FB0EC1" mainViewID="A1897CC1-066F-F602-4C9E-6513B6496451">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:32:49 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

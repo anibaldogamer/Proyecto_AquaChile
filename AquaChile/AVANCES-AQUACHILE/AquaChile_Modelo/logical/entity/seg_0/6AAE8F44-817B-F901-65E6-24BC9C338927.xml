@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6AAE8F44-817B-F901-65E6-24BC9C338927" name="evaluacion">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>C1371FF6-2C3F-5D84-74B2-C1A328B04939</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id evaluacion" id="7918E902-3209-68A3-A77A-9E1797A68B68">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>E33508BB-2F57-8E4D-C6EC-683C68224D81</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id solicitud" id="2CC0B7E1-D081-93B2-5A43-7BD701680E51">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>8AEA9B76-8B82-0705-247E-4BC54E963C0D</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<referedAttribute>1338712A-4182-5B44-21FE-9009268ABE10</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha evaluacion" id="5AB0096C-0D38-0FD0-C311-42B4C7B0DF94">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>B1FC59F6-72C3-0BDA-93F9-E2842CE4668F</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>481D0C9D-D259-3695-C232-3A0A52319757</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estado" id="AC3AFD65-C80E-0562-5189-53B6FF890F00">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>F62717B3-95B3-AFE8-1290-05833C66C22B</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>849F3930-0413-4EE6-2506-D2E78C223129</domain>
+<listOfValues>
+<valueDef value="En proceso" description=""/>
+<valueDef value="Finalizada" description=""/>
+<valueDef value="Pendiente" description=""/>
+</listOfValues>
+<defaultValue>&apos;Pendiente&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="resultado general" id="4030A72E-06C0-7254-628E-0C1CC631A548">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>F5CF111B-AD0B-BCAA-272F-65FDC8FA8368</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="observaciones" id="9E367D23-6FE7-B1A8-6351-25E4BA337A86">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>FB1769E5-F76E-291D-16C6-5320CB538737</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E3BDC0E8-EC8F-C9B2-88EB-1E4BFB3F3761" name="evaluacion PK">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>4604A7C8-4599-5DA8-2487-246847048714</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7918E902-3209-68A3-A77A-9E1797A68B68</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="106B92C7-B10A-8485-6A26-960187821D38" name="INDEX 1">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>1F860D0A-15CC-3422-7616-665C51D545F4</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>2CC0B7E1-D081-93B2-5A43-7BD701680E51</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

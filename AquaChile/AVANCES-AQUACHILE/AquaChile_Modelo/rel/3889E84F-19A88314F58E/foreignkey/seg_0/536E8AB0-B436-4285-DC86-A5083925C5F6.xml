@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="536E8AB0-B436-4285-DC86-A5083925C5F6" containerWithKeyObject="CF3F8167-053B-854B-BAA6-CB9352BA9D93" localFKIndex="64908952-AD88-B10A-2DEE-BC6C062934DB" name="solicitud_evaluacion_responsable_FK">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>528CEE78-686C-93AA-0DDB-46E1D93BCAB2</importedID>
+<referredTableLongName>responsable</referredTableLongName>
+<deleteRule>SET NULL</deleteRule>
+<referredTableID>E0F440CC-CB04-8130-A0E9-872D1D52E531</referredTableID>
+<keyObject>FD98A5E9-9066-A191-59F3-E758D43CCB67</keyObject>
+<referredKeyID>FD98A5E9-9066-A191-59F3-E758D43CCB67</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>id_responsable</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

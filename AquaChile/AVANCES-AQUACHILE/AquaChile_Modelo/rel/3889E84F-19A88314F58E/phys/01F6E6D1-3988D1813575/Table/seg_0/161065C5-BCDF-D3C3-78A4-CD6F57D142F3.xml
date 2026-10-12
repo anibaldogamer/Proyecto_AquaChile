@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="candidato" directorySegmentName="seg_0" id="161065C5-BCDF-D3C3-78A4-CD6F57D142F3">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="correo" id="2F9F1DC7-FC9C-8CE2-D25A-8F779022DF8C">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="fecha_creacion" id="628B3615-2152-F03D-DB48-0C5F7B025C42">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<defaultValue>NOW()</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="nombre" id="ACB3AEDA-6C5B-BD0F-ADD8-40BA2E0595DE">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="telefono" id="DB8AEA12-3AE6-5F8E-CE58-4A2181BDE20E">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_candidato" id="F51548C1-EE82-40EE-E0BA-2D0AA6CC1E01">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="candidato_PK" id="77AA53BA-26D5-10FE-A06C-C6671BF2348A">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

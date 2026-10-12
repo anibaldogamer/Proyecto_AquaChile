@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C1371FF6-2C3F-5D84-74B2-C1A328B04939" name="evaluacion">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>85AB8E40-25F6-8574-213E-8EACAC945E1F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_evaluacion" id="E33508BB-2F57-8E4D-C6EC-683C68224D81">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>E1D5DCFE-21F0-4106-4BA5-BEE303301091</importedID>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="id_solicitud" id="E12E6024-5A09-3DDA-CA6F-CC9FB8D4AE13">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>EF54B42C-A24B-2C31-B3DF-7BDAFC87FC4F</importedID>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6CD57FCA-979A-A03D-3FBB-D8FA13E0A662" referredColumn="0191129D-2536-578E-AB4C-F2904713346D"/>
+</associations>
+</Column>
+<Column name="fecha_evaluacion" id="B1FC59F6-72C3-0BDA-93F9-E2842CE4668F">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>308712D0-721B-4D4A-45A5-34C478FD6346</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>481D0C9D-D259-3695-C232-3A0A52319757</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="F62717B3-95B3-AFE8-1290-05833C66C22B">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>B9296063-C2D8-B5DB-5741-B3B6121AB64A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>849F3930-0413-4EE6-2506-D2E78C223129</domain>
+<listOfValues>
+<valueDef value="En proceso" description=""/>
+<valueDef value="Finalizada" description=""/>
+<valueDef value="Pendiente" description=""/>
+</listOfValues>
+<defaultValue>&apos;Pendiente&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="resultado_general" id="F5CF111B-AD0B-BCAA-272F-65FDC8FA8368">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>2A2C5885-4CF2-DD84-2E49-866C93755FA8</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observaciones" id="FB1769E5-F76E-291D-16C6-5320CB538737">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>DE25D71C-A5EE-F05C-C4A4-D332B454C996</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4604A7C8-4599-5DA8-2487-246847048714" name="evaluacion_PK">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>0A33490E-C218-C0C1-1579-0C1EE5E44C6A</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E33508BB-2F57-8E4D-C6EC-683C68224D81"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F860D0A-15CC-3422-7616-665C51D545F4" name="INDEX_1">
+<sourceDDLFile>01_schema_postgresql.sql</sourceDDLFile>
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<importedID>309CE029-CDFD-F949-D2BF-374CB5364113</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E12E6024-5A09-3DDA-CA6F-CC9FB8D4AE13"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="844BF866-DAE5-E7C6-7FC5-66707FD5B052" name="evaluacion_solicitud_evaluacion_FK">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:46:11 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E12E6024-5A09-3DDA-CA6F-CC9FB8D4AE13"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

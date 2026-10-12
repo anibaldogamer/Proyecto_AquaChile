@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="AquaChile_Modelo" id="FDB7DC59-D922-D0E2-A28D-FFDA2A88DB4D" version="3.5">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:32:49 UTC</createdTime>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>FDB7DC59-D922-D0E2-A28D-FFDA2A88DB4D</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="A725A26A-2174-8C99-76F5-EA0D9EBB9B9A">
+<designStoragePath>C:\01_schema_postgresql</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

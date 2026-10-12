@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="solicitud_evaluacion_responsable_FK" directorySegmentName="seg_0" id="CC394FC6-721D-CDEA-0DE1-93BBA5957CDA">
+<createdBy>bssae</createdBy>
+<createdTime>2026-10-12 00:49:08 UTC</createdTime>
+<generatorID>536E8AB0-B436-4285-DC86-A5083925C5F6</generatorID>
+<ownerDesignName>AquaChile_Modelo</ownerDesignName>
+<engineerTo>
+<item key="3889E84F-3FA0-92DF-A533-19A88314F58E" value="true"/>
+</engineerTo>
+<sourcePk>BC9F5B69-BDF5-C871-F490-F8CDD40AAE4E</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>062A9B6C-82B7-A786-34D2-B2AEFFB599BE</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>76ACC3AD-F069-6D2F-940C-42950E75A8AD</targetEntity>
+<transferable>true</transferable>
+<deleteRule>SET NULL</deleteRule>
+</Relation>
