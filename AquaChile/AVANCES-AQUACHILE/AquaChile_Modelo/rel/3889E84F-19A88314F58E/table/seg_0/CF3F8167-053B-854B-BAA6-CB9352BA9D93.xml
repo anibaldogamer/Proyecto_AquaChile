@@ -15,7 +15,9 @@
 <createdTime>2026-10-12 00:46:11 UTC</createdTime>
 <ownerDesignName>AquaChile_Modelo</ownerDesignName>
 <importedID>15CDBD03-29A6-D7EB-581B-C5CE6D1780DB</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <identityColumn>true</identityColumn>
@@ -28,7 +30,9 @@
 <createdTime>2026-10-12 00:46:11 UTC</createdTime>
 <ownerDesignName>AquaChile_Modelo</ownerDesignName>
 <importedID>C2FE845F-EF2D-8354-543D-04835A75CA36</importedID>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -42,7 +46,8 @@
 <ownerDesignName>AquaChile_Modelo</ownerDesignName>
 <importedID>95CAA1DB-C57F-5361-D1FB-FF4E5117AD5C</importedID>
 <nullsAllowed>true</nullsAllowed>
-<use>0</use>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -114,7 +119,9 @@
 <ownerDesignName>AquaChile_Modelo</ownerDesignName>
 <importedID>B59EBB8A-FDB0-7A36-9885-04089FD70852</importedID>
 <nullsAllowed>true</nullsAllowed>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>

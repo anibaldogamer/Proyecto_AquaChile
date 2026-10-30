@@ -1,0 +1,27 @@
+# Frontend
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+
+# Backend
+**/target/
+**/build/
+**/.env
+**/application-local.properties
+
+# IDE
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos accidentales de npm
+/AquaChile/package-lock.json
+/AquaChile/aquachile-backend/package.json
+/AquaChile/aquachile-backend/package-lock.json
+
+/package-lock.json
