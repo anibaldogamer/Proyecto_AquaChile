@@ -1,12 +1,7 @@
 
 package cl.aquachile.backend.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "responsable")
@@ -23,8 +18,9 @@ public class Responsable {
     @Column(name = "correo", nullable = false, unique = true)
     private String correo;
 
-    @Column(name = "rol", nullable = false, length = 30)
-    private String rol;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_rol", nullable = false)
+    private Rol rol;
 
     @Column(name = "activo", nullable = false)
     private Boolean activo = true;
@@ -32,8 +28,7 @@ public class Responsable {
     @Column(name = "password_hash", length = 255)
     private String passwordHash;
 
-    public Responsable() {
-    }
+    public Responsable() {}
 
     public Long getIdResponsable() {
         return idResponsable;
@@ -59,11 +54,11 @@ public class Responsable {
         this.correo = correo;
     }
 
-    public String getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 
@@ -74,7 +69,7 @@ public class Responsable {
     public void setActivo(Boolean activo) {
         this.activo = activo;
     }
-    
+
     public String getPasswordHash() {
         return passwordHash;
     }

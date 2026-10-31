@@ -4,21 +4,26 @@ package cl.aquachile.backend.controller;
 import cl.aquachile.backend.dto.SolicitudEvaluacionDTO;
 import cl.aquachile.backend.entity.SolicitudEvaluacion;
 import cl.aquachile.backend.repository.SolicitudEvaluacionRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import cl.aquachile.backend.service.SolicitudEvaluacionService;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/solicitudes")
 public class SolicitudEvaluacionController {
 
     private final SolicitudEvaluacionRepository solicitudRepository;
+    private final SolicitudEvaluacionService solicitudService;
 
     public SolicitudEvaluacionController(
-            SolicitudEvaluacionRepository solicitudRepository) {
+            SolicitudEvaluacionRepository solicitudRepository,
+            SolicitudEvaluacionService solicitudService) {
         this.solicitudRepository = solicitudRepository;
+        this.solicitudService = solicitudService;
     }
 
     @GetMapping
@@ -29,8 +34,30 @@ public class SolicitudEvaluacionController {
                 .toList();
     }
 
+    @PatchMapping("/{id}/estado")
+    public Map<String, String> actualizarEstado(
+            @PathVariable Long id,
+            @RequestBody ActualizarEstadoRequest request,
+            Authentication authentication) {
+
+        solicitudService.actualizarEstado(
+                id,
+                request.estado(),
+                authentication
+        );
+
+        return Map.of(
+                "mensaje", "Estado actualizado correctamente",
+                "estado", request.estado()
+        );
+    }
+
     private SolicitudEvaluacionDTO convertirADTO(
             SolicitudEvaluacion solicitud) {
+
+        Long idCandidato = solicitud.getCandidato() != null
+                ? solicitud.getCandidato().getIdCandidato()
+                : null;
 
         String nombreCandidato = solicitud.getCandidato() != null
                 ? solicitud.getCandidato().getNombre()
@@ -42,6 +69,7 @@ public class SolicitudEvaluacionController {
 
         return new SolicitudEvaluacionDTO(
                 solicitud.getIdSolicitud(),
+                idCandidato,
                 nombreCandidato,
                 nombreResponsable,
                 solicitud.getCargo(),
@@ -50,5 +78,8 @@ public class SolicitudEvaluacionController {
                 solicitud.getEstado(),
                 solicitud.getObservaciones()
         );
+    }
+
+    public record ActualizarEstadoRequest(String estado) {
     }
 }

@@ -40,6 +40,15 @@ public class CandidatoController {
         return candidatoRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+        public Candidato obtenerCandidato(@PathVariable Long id) {
+        return candidatoRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "No se encontró el candidato."
+                ));
+        }
+
     @GetMapping("/{id}/cv")
     public ResponseEntity<byte[]> obtenerCv(
             @PathVariable Long id,

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
@@ -6,6 +7,9 @@ export default function DashboardAquaChile({ onNavigateToForm }) {
   const navigate = useNavigate();
 
   const [solicitudes, setSolicitudes] = useState([]);
+  const [usuario, setUsuario] = useState(null);
+  const [actualizandoEstado, setActualizandoEstado] = useState(null);
+  const [errorEstado, setErrorEstado] = useState('');
   const [estadisticasPublicas, setEstadisticasPublicas] = useState(null);
   const [cargandoPublicas, setCargandoPublicas] = useState(true);
   const [errorPublicas, setErrorPublicas] = useState('');
@@ -15,6 +19,12 @@ export default function DashboardAquaChile({ onNavigateToForm }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [cerrandoSesion, setCerrandoSesion] = useState(false);
+
+  // Estados para desplegar la información del candidato
+  const [solicitudExpandida, setSolicitudExpandida] = useState(null);
+  const [detalleCandidato, setDetalleCandidato] = useState(null);
+  const [cargandoDetalle, setCargandoDetalle] = useState(false);
+  const [errorDetalle, setErrorDetalle] = useState('');
 
   useEffect(() => {
     const cargarSolicitudes = async () => {
@@ -48,6 +58,29 @@ export default function DashboardAquaChile({ onNavigateToForm }) {
     cargarSolicitudes();
   }, []);
 
+
+
+    useEffect(() => {
+    const cargarUsuario = async () => {
+      try {
+        const response = await fetch('/api/auth/me', {
+          credentials: 'include',
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        setUsuario(data);
+      } catch (err) {
+        console.error('Error al cargar usuario:', err);
+      }
+    };
+
+    cargarUsuario();
+  }, []);
+
   useEffect(() => {
     const cargarEstadisticasPublicas = async () => {
       try {
@@ -75,6 +108,41 @@ export default function DashboardAquaChile({ onNavigateToForm }) {
     cargarEstadisticasPublicas();
   }, []);
 
+    const actualizarEstado = async (idSolicitud, nuevoEstado) => {
+    try {
+      setActualizandoEstado(idSolicitud);
+      setErrorEstado('');
+
+      const response = await fetch(`/api/solicitudes/${idSolicitud}/estado`, {
+        method: 'PATCH',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ estado: nuevoEstado }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.mensaje || `No fue posible actualizar el estado (HTTP ${response.status}).`);
+      }
+
+      setSolicitudes((actuales) =>
+        actuales.map((item) =>
+          item.idSolicitud === idSolicitud
+            ? { ...item, estado: nuevoEstado }
+            : item
+        )
+      );
+    } catch (err) {
+      console.error('Error al actualizar estado:', err);
+      setErrorEstado(err.message);
+    } finally {
+      setActualizandoEstado(null);
+    }
+  };
+
   const handleLogout = async () => {
     try {
       setCerrandoSesion(true);
@@ -94,6 +162,45 @@ export default function DashboardAquaChile({ onNavigateToForm }) {
       setError('No fue posible cerrar la sesión. Inténtalo nuevamente.');
     } finally {
       setCerrandoSesion(false);
+    }
+  };
+
+
+
+
+
+
+  // Abrir o cerrar la información de un candidato
+  const desplegarCandidato = async (idCandidato, idSolicitud) => {
+    if (solicitudExpandida === idSolicitud) {
+      setSolicitudExpandida(null);
+      setDetalleCandidato(null);
+      setErrorDetalle('');
+      return;
+    }
+
+    setSolicitudExpandida(idSolicitud);
+    setDetalleCandidato(null);
+    setErrorDetalle('');
+
+    try {
+      setCargandoDetalle(true);
+
+      const response = await fetch(`/api/candidatos/${idCandidato}`, {
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      setDetalleCandidato(data);
+    } catch (err) {
+      console.error('Error al cargar candidato:', err);
+      setErrorDetalle('No fue posible cargar la información del candidato.');
+    } finally {
+      setCargandoDetalle(false);
     }
   };
 
@@ -210,7 +317,7 @@ export default function DashboardAquaChile({ onNavigateToForm }) {
 
           <div className="dashboard-user">
             <span className="dashboard-user-name">
-              Usuario: analista.reclutamiento
+            Usuario: {usuario?.nombre || 'Cargando usuario...'}
             </span>
 
             <button
@@ -257,6 +364,12 @@ export default function DashboardAquaChile({ onNavigateToForm }) {
             >
               Volver a intentar
             </button>
+          </div>
+        )}
+
+        {errorEstado && (
+          <div className="dashboard-error" role="alert">
+            {errorEstado}
           </div>
         )}
 
@@ -433,25 +546,123 @@ export default function DashboardAquaChile({ onNavigateToForm }) {
                 )}
 
                 {!loading && solicitudesFiltradas.map((item) => (
-                  <tr key={item.idSolicitud}>
-                    <td className="table-code">
-                      SOL-{item.idSolicitud}
-                    </td>
+                  <React.Fragment key={item.idSolicitud}>
 
-                    <td className="table-candidate">
-                      {item.nombreCandidato || 'Sin candidato'}
-                    </td>
+                    {/* FILA DE LA SOLICITUD */}
+                    <tr>
+                      <td className="table-code">
+                        SOL-{item.idSolicitud}
+                      </td>
 
-                    <td>{item.familiaCargo || '—'}</td>
-                    <td>{item.cargo || '—'}</td>
-                    <td>{formatearFecha(item.fechaSolicitud)}</td>
+                      <td className="table-candidate">
+                        {item.nombreCandidato ? (
+                          <button
+                            type="button"
+                            className="candidate-link"
+                            onClick={() =>
+                              desplegarCandidato(
+                                item.idCandidato,
+                                item.idSolicitud
+                              )
+                            }
+                            disabled={!item.idCandidato}
+                          >
+                            {item.nombreCandidato}
+                            {solicitudExpandida === item.idSolicitud ? ' ▲' : ' ▼'}
+                          </button>
+                        ) : (
+                          'Sin candidato'
+                        )}
+                      </td>
 
-                    <td>
-                      <span className={`status-badge ${getBadgeStyle(item.estado)}`}>
-                        {item.estado || 'Sin estado'}
-                      </span>
-                    </td>
-                  </tr>
+                      <td>{item.familiaCargo || '—'}</td>
+                      <td>{item.cargo || '—'}</td>
+                      <td>{formatearFecha(item.fechaSolicitud)}</td>
+
+                      <td>
+                        {usuario?.rol === 'EVALUADOR' ? (
+                          <select
+                            className="form-select form-select-sm"
+                            value={item.estado || 'Pendiente'}
+                            disabled={actualizandoEstado === item.idSolicitud}
+                            onChange={(e) =>
+                              actualizarEstado(item.idSolicitud, e.target.value)
+                            }
+                          >
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="En proceso">En proceso</option>
+                            <option value="Finalizada">Finalizada</option>
+                          </select>
+                        ) : (
+                          <span className={`status-badge ${getBadgeStyle(item.estado)}`}>
+                            {item.estado || 'Sin estado'}
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+
+                    {/* INFORMACIÓN DESPLEGABLE DEL CANDIDATO */}
+                    {solicitudExpandida === item.idSolicitud && (
+                      <tr>
+                        <td colSpan="6">
+                          <div className="p-3 bg-light rounded">
+
+                            <h6 className="mb-3">
+                              Información del candidato
+                            </h6>
+
+                            {cargandoDetalle ? (
+                              <p className="mb-0">
+                                Cargando información...
+                              </p>
+                            ) : errorDetalle ? (
+                              <p className="text-danger mb-0" role="alert">
+                                {errorDetalle}
+                              </p>
+                            ) : detalleCandidato ? (
+                              <>
+                                <p>
+                                  <strong>Nombre:</strong>{' '}
+                                  {detalleCandidato.nombre || '—'}
+                                </p>
+
+                                <p>
+                                  <strong>Correo:</strong>{' '}
+                                  {detalleCandidato.correo || '—'}
+                                </p>
+
+                                <p>
+                                  <strong>Teléfono:</strong>{' '}
+                                  {detalleCandidato.telefono || '—'}
+                                </p>
+
+                                {detalleCandidato.cvPath ? (
+                                  <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    onClick={() =>
+                                      window.open(
+                                        `/api/candidatos/${item.idCandidato}/cv`,
+                                        '_blank'
+                                      )
+                                    }
+                                  >
+                                    Ver CV
+                                  </button>
+                                ) : (
+                                  <p className="text-muted mb-0">
+                                    No hay un CV registrado.
+                                  </p>
+                                )}
+                              </>
+                            ) : null}
+
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+
+                  </React.Fragment>
                 ))}
 
               </tbody>

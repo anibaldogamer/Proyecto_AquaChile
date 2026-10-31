@@ -33,8 +33,9 @@ public class ResponsableUserDetailsService implements UserDetailsService {
                 .password(
                         responsable.getPasswordHash() == null
                                 ? ""
+                                
                                 : responsable.getPasswordHash())
-                .roles(responsable.getRol())
+                .roles(responsable.getRol().getNombre())
                 .disabled(!Boolean.TRUE.equals(responsable.getActivo()))
                 .build();
     }
