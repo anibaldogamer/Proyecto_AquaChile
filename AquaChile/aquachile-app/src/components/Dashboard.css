@@ -18,6 +18,15 @@
   font-size: 13px;
 }
 
+/* Base visual compartida para mantener acciones consistentes. */
+.dashboard-primary-button,
+.dashboard-secondary-button,
+.dashboard-logout,
+.dashboard-error button,
+.candidate-link {
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
 .dashboard * {
   box-sizing: border-box;
 }
@@ -112,14 +121,14 @@
   width: calc(100% - 36px);
   max-width: 1105px;
   margin: 0 auto;
-  padding: 34px 0 25px;
+  padding: 20px 0 18px;
 }
 
 /* TÍTULO */
 
 .dashboard-heading {
-  min-height: 95px;
-  margin-bottom: 20px;
+  min-height: 72px;
+  margin-bottom: 14px;
 
   display: flex;
   align-items: center;
@@ -165,15 +174,15 @@
 /* INDICADORES */
 
 .dashboard-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 23px;
-  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .stat-card {
-  min-height: 122px;
-  padding: 22px 24px;
+  min-height: 96px;
+  padding: 14px 16px;
 
   display: flex;
   flex-direction: column;
@@ -221,8 +230,8 @@
 /* FILTROS */
 
 .dashboard-filters {
-  margin-bottom: 24px;
-  padding: 20px 23px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
 
   background: white;
   border: 1px solid var(--aqua-border);
@@ -296,7 +305,7 @@
 /* TABLA */
 
 .dashboard-list {
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   overflow: hidden;
 
   background: white;
@@ -306,8 +315,8 @@
 }
 
 .table-heading {
-  min-height: 76px;
-  padding: 18px 23px;
+  min-height: 58px;
+  padding: 12px 16px;
 
   display: flex;
   align-items: center;
@@ -346,7 +355,7 @@
 }
 
 .dashboard-table tbody td {
-  padding: 15px;
+  padding: 10px 12px;
   border-bottom: 1px solid #E4E9ED;
   color: #536A7D;
   font-size: 10px;
@@ -410,8 +419,8 @@
 /* DISTRIBUCIÓN */
 
 .dashboard-distribution {
-  margin-bottom: 25px;
-  padding: 25px 23px 28px;
+  margin-bottom: 16px;
+  padding: 16px;
 
   background: white;
   border: 1px solid var(--aqua-border);
@@ -434,7 +443,7 @@
 .distribution-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
 }
 
 .distribution-labels {
@@ -572,8 +581,8 @@
 /* POSTULACIONES EXTERNAS */
 
 .dashboard-public-applications {
-  margin-bottom: 25px;
-  padding: 22px 24px;
+  margin-bottom: 16px;
+  padding: 16px;
   background: white;
   border: 1px solid var(--aqua-border);
   border-radius: 5px;
@@ -581,7 +590,7 @@
 }
 
 .dashboard-public-heading {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .dashboard-public-heading h2 {
@@ -604,8 +613,8 @@
 }
 
 .dashboard-public-metric {
-  min-height: 94px;
-  padding: 17px 19px;
+  min-height: 72px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -613,6 +622,24 @@
   background: #F7F9FB;
   border: 1px solid var(--aqua-border);
   border-radius: 4px;
+}
+
+/* Escala común para botones primarios, secundarios y acciones de tabla. */
+.dashboard-primary-button,
+.dashboard-secondary-button,
+.dashboard-logout,
+.dashboard .btn {
+  min-height: 36px;
+  padding: .45rem .8rem;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+@media (min-width: 701px) {
+  .filter-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 10px; }
+  .filter-grid > * { width: auto; padding: 0; }
 }
 
 .dashboard-public-metric span {

@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Sistema visual común para las acciones del módulo. */
+:root {
+  --aqua-button-height: 36px;
+  --aqua-button-radius: 4px;
+}
+
+.login-submit-button,
+.login-postulacion-button,
+.formulario-btn-primary,
+.formulario-btn-secondary,
+.dashboard-primary-button,
+.dashboard-secondary-button,
+.dashboard-logout {
+  min-height: var(--aqua-button-height);
+  border-radius: var(--aqua-button-radius);
+  font-family: inherit;
+  font-weight: 600;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .15s ease;
+}
+
+.login-submit-button {
+  min-height: 44px;
+}
+
+.login-postulacion-button {
+  min-height: auto;
+}

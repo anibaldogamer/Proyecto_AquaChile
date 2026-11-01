@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   BrowserRouter,
   Navigate,
@@ -11,6 +10,10 @@ import Login from './components/Login';
 import RutaProtegida from './components/RutaProtegida';
 import DashboardAquaChile from './components/Dashboard';
 import FormularioCandidatoAquaChile from './components/FormularioCandidato';
+import ModuloLayout from './layouts/ModuloLayout';
+import DetalleLayout from './layouts/DetalleLayout';
+import PerfilEvaluador from './screens/PerfilEvaluador';
+import DetalleCandidato from './screens/DetalleCandidato';
 
 function RutasAplicacion() {
   const navigate = useNavigate();
@@ -23,12 +26,13 @@ function RutasAplicacion() {
         path="/dashboard"
         element={
           <RutaProtegida>
-            <DashboardAquaChile
-              onNavigateToForm={() => navigate('/candidatos/nuevo')}
-            />
+            <ModuloLayout><DashboardAquaChile onNavigateToForm={() => navigate('/candidatos/nuevo')} /></ModuloLayout>
           </RutaProtegida>
         }
       />
+
+      <Route path="/evaluador" element={<RutaProtegida><ModuloLayout><PerfilEvaluador /></ModuloLayout></RutaProtegida>} />
+      <Route path="/candidatos/:id" element={<RutaProtegida><DetalleLayout><DetalleCandidato onBack={() => navigate('/dashboard')} /></DetalleLayout></RutaProtegida>} />
 
       <Route
         path="/candidatos/nuevo"

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './FormularioCandidato.css';
 
 export default function FormularioCandidatoAquaChile({

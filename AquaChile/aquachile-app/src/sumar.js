@@ -1,1 +1,3 @@
-sumar(2,3)
+export function sumar(a, b) {
+  return a + b
+}
