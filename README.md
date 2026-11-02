@@ -382,7 +382,7 @@ A continuación, se presentan las capturas de las principales interfaces de la a
 
 Pantalla de acceso al sistema para los usuarios internos de Reclutamiento y Selección.
 
-![Inicio de sesión](./AquaChile/AVANCES-AQUACHILE/inicio_sesion.png)
+![Inicio de sesión](./AquaChile/AVANCES-AQUACHILE/inicio_de_sesion.png)
 
 ### 12.2. Panel de control (Dashboard)
 
