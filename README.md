@@ -376,44 +376,39 @@ El sistema continúa en desarrollo, por lo que algunas funcionalidades y proceso
 
 ## 12. Capturas del sistema
 
-A continuación, se presentan algunas vistas de la aplicación desarrollada, que permiten conocer su interfaz y las principales funcionalidades implementadas.
+A continuación, se presentan las capturas de las principales interfaces de la aplicación, organizadas según el flujo de uso del sistema.
 
 ### 12.1. Inicio de sesión
 
-Pantalla de acceso al sistema para los usuarios internos.
+Pantalla de acceso al sistema para los usuarios internos de Reclutamiento y Selección.
 
-![Inicio de sesión](./AVANCES-AQUACHILE/inicio_de_sesion.png)
+![Inicio de sesión](./AquaChile/AVANCES-AQUACHILE/inicio_sesion.png)
 
-### 12.2. Panel de control
+### 12.2. Panel de control (Dashboard)
 
-Vista principal del sistema, donde se centraliza la información de los candidatos y las solicitudes de evaluación.
+Vista principal del sistema, donde se centraliza la información de los candidatos y las solicitudes de evaluación psicolaboral.
 
 ![Dashboard principal](./AquaChile/AVANCES-AQUACHILE/dashboard_1.2.png)
 
+Vista del listado de solicitudes, con información de los candidatos y herramientas de gestión.
+
 ![Dashboard - Vista de solicitudes](./AquaChile/AVANCES-AQUACHILE/dashboard_2.2.png)
 
+Vista de las solicitudes agrupadas por familia de cargo y sus respectivos indicadores.
+
 ![Dashboard - Solicitudes por familia de cargo](./AquaChile/AVANCES-AQUACHILE/dashboard_3.2.png)
-
-Vista del listado de solicitudes, información de candidatos y gestión de estados.
-
-![Dashboard - Vista de solicitudes](./AVANCES-AQUACHILE/dashboard_2.png)
-
-Vista de solicitudes agrupadas por familia de cargo y sus indicadores de distribución.
-
-![Dashboard - Solicitudes por familia de cargo](./AVANCES-AQUACHILE/dashboard_3.png)
 
 ### 12.3. Registro interno de candidatos
 
 Formulario utilizado por el personal de Reclutamiento y Selección para ingresar nuevos candidatos al sistema.
 
-![Formulario de registro interno](./AVANCES-AQUACHILE/formulario_registro.png)
+![Formulario de registro interno](./AquaChile/AVANCES-AQUACHILE/formulario_registro.png)
 
 ### 12.4. Postulación pública
 
-Interfaz destinada a las personas interesadas en postular a oportunidades laborales en AquaChile.
+Formulario destinado a las personas externas interesadas en postular a oportunidades laborales en AquaChile.
 
-![Formulario de postulación pública](./AVANCES-AQUACHILE/formulario_publico.png)
-
+![Formulario de postulación pública](./AquaChile/AVANCES-AQUACHILE/formulario_publico.png)
 ## 13. Conclusión
 
 AquaChile busca transformar un proceso de gestión de candidatos y evaluaciones psicolaborales en un flujo digital centralizado, organizado y trazable.
