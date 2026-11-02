@@ -9,11 +9,8 @@ import {
 import Login from './components/Login';
 import RutaProtegida from './components/RutaProtegida';
 import DashboardAquaChile from './components/Dashboard';
-import FormularioCandidatoAquaChile from './components/FormularioCandidato';
 import ModuloLayout from './layouts/ModuloLayout';
-import DetalleLayout from './layouts/DetalleLayout';
-import PerfilEvaluador from './screens/PerfilEvaluador';
-import DetalleCandidato from './screens/DetalleCandidato';
+import FormularioCandidatoAquaChile from './components/FormularioCandidato';
 
 function RutasAplicacion() {
   const navigate = useNavigate();
@@ -22,17 +19,18 @@ function RutasAplicacion() {
     <Routes>
       <Route path="/login" element={<Login />} />
 
-      <Route
-        path="/dashboard"
-        element={
-          <RutaProtegida>
-            <ModuloLayout><DashboardAquaChile onNavigateToForm={() => navigate('/candidatos/nuevo')} /></ModuloLayout>
-          </RutaProtegida>
-        }
-      />
-
-      <Route path="/evaluador" element={<RutaProtegida><ModuloLayout><PerfilEvaluador /></ModuloLayout></RutaProtegida>} />
-      <Route path="/candidatos/:id" element={<RutaProtegida><DetalleLayout><DetalleCandidato onBack={() => navigate('/dashboard')} /></DetalleLayout></RutaProtegida>} />
+    <Route
+      path="/dashboard"
+      element={
+        <RutaProtegida>
+          <ModuloLayout>
+            <DashboardAquaChile
+              onNavigateToForm={() => navigate('/candidatos/nuevo')}
+            />
+          </ModuloLayout>
+        </RutaProtegida>
+      }
+    />
 
       <Route
         path="/candidatos/nuevo"
@@ -47,9 +45,7 @@ function RutasAplicacion() {
 
       <Route
         path="/postulacion"
-        element={
-          <FormularioCandidatoAquaChile modo="publico" />
-        }
+        element={<FormularioCandidatoAquaChile modo="publico" />}
       />
 
       <Route path="/" element={<Navigate to="/login" replace />} />

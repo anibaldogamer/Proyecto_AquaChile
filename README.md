@@ -33,7 +33,7 @@ Desarrollar una aplicación web que permita gestionar de manera centralizada los
 - Mantener un registro de los cambios de estado para mejorar la trazabilidad.
 - Incorporar un formulario público para recibir postulaciones laborales.
 
-## 4. Funcionamiento general
+## 4. Funcionamiento general y flujo del sistema
 
 El sistema contempla dos vías principales de ingreso de candidatos:
 
@@ -41,9 +41,18 @@ El sistema contempla dos vías principales de ingreso de candidatos:
 
 **Postulación pública:** una persona interesada en trabajar en AquaChile puede completar un formulario de postulación y enviar sus antecedentes y currículum para su posterior revisión.
 
-Una vez registrados, los candidatos y sus solicitudes pueden ser consultados desde el panel de control.
+### Flujo general
 
-El proceso contempla distintos perfiles de usuario:
+1. El usuario interno ingresa al sistema mediante sus credenciales.
+2. El backend valida las credenciales y los permisos correspondientes al rol.
+3. El usuario accede al panel de control de selección.
+4. Desde el dashboard puede consultar solicitudes, revisar indicadores, buscar candidatos y aplicar filtros.
+5. El usuario puede acceder a los antecedentes del candidato y consultar la información disponible.
+6. El evaluador puede actualizar el estado de las solicitudes según el avance del proceso.
+7. El backend procesa los cambios y registra la información correspondiente en la base de datos.
+8. Las postulaciones externas recibidas mediante el formulario público quedan disponibles para su posterior revisión.
+
+### Roles del sistema
 
 | Rol | Función principal |
 |---|---|
@@ -58,16 +67,24 @@ Los permisos se gestionan desde el backend mediante Spring Security, evitando de
 
 ### 5.1. Panel de control (Dashboard)
 
-El dashboard permite consultar y organizar la información de las solicitudes de evaluación.
+El dashboard permite consultar y organizar la información de las solicitudes de evaluación psicolaboral mediante una interfaz centralizada.
 
 Entre sus funcionalidades se encuentran:
 
-- Visualización de indicadores según el estado de las solicitudes.
-- Listado de candidatos y sus respectivas solicitudes.
-- Búsqueda y filtrado de registros.
+- Visualización del total de solicitudes.
+- Indicadores de solicitudes pendientes, en proceso y finalizadas.
+- Resumen de postulaciones externas recibidas mediante el formulario público.
+- Identificación de postulaciones pendientes de revisión.
+- Listado de solicitudes de evaluación.
+- Búsqueda por candidato, código o cargo.
+- Filtrado por familia de cargo.
+- Filtrado por estado de solicitud.
 - Consulta de antecedentes adicionales del candidato.
-- Identificación de los estados Pendiente, En proceso y Finalizada.
-- Actualización visual de los indicadores cuando cambia el estado de una solicitud.
+- Acceso al currículum vitae cuando está disponible.
+- Actualización de estados según los permisos del usuario.
+- Visualización de solicitudes agrupadas por familia de cargo.
+
+Los indicadores permiten obtener una visión general del estado de los procesos de reclutamiento y selección.
 
 ### 5.2. Registro interno de candidatos
 
@@ -138,6 +155,9 @@ La actualización de la solicitud y su registro de auditoría se realizan dentro
 - **JavaScript (ES6+):** lógica de la aplicación, validaciones y manejo de estados.
 - **Vite:** entorno de desarrollo y compilación del frontend.
 - **CSS y Bootstrap:** estructura visual, estilos y diseño de los componentes.
+- **Vitest:** ejecución de pruebas automatizadas.
+- **React Testing Library:** pruebas de componentes e interfaces.
+- **jest-dom:** utilidades para realizar comprobaciones sobre elementos del DOM.
 
 ### Backend
 
@@ -197,8 +217,58 @@ Entre las pruebas realizadas se encuentran:
 - Registro de los cambios en la tabla de auditoría.
 - Registro de candidatos mediante el formulario interno.
 - Verificación de la comunicación entre frontend, backend y base de datos.
+- Pruebas automatizadas de renderizado de componentes mediante Vitest y React Testing Library.
 
-Estas pruebas permitieron comprobar el funcionamiento de los principales flujos implementados.
+### 9.1. Pruebas automatizadas del frontend
+
+Se incorporaron pruebas automatizadas para comprobar el funcionamiento general de las principales pantallas y layouts del frontend.
+
+Los archivos de pruebas se encuentran organizados en `src/test/`:
+
+| Archivo | Pruebas |
+|---|---:|
+| `Dashboard.test.jsx` | 2 |
+| `Login.test.jsx` | 2 |
+| `FormularioCandidato.test.jsx` | 4 |
+| `ModuloLayout.test.jsx` | 1 |
+| `DetalleLayout.test.jsx` | 1 |
+| **Total** | **10** |
+
+Las pruebas verifican principalmente:
+
+- Renderizado de las pantallas.
+- Presencia de títulos y elementos principales.
+- Existencia de campos de formulario.
+- Presencia de botones.
+- Renderizado del contenido dentro de los layouts.
+
+La configuración de las pruebas se encuentra en `src/test/setup.js`, donde se importa `@testing-library/jest-dom/vitest` para habilitar las funciones de comprobación de elementos del DOM.
+
+### 9.2. Ejecución de las pruebas
+
+Desde la carpeta del frontend (`aquachile-app`), ejecutar:
+
+**Ejecutar todas las pruebas:**
+
+```powershell
+npx vitest run
+```
+
+**Ejecutar las pruebas en modo interactivo:**
+
+```powershell
+npx vitest
+```
+
+**Ejecutar las pruebas con informe de cobertura:**
+
+```powershell
+npx vitest run --coverage
+```
+
+La cobertura permite conocer qué porcentaje de instrucciones, ramas, funciones y líneas del código fue ejecutado durante las pruebas.
+
+Las pruebas automatizadas del frontend se enfocan en la comprobación general de los componentes y no reemplazan las pruebas de integración del backend y la base de datos.
 
 ## 10. Instalación y ejecución local
 
@@ -214,7 +284,7 @@ Para ejecutar el proyecto se necesita:
 ### Clonar el repositorio
 
 ```bash
-git clone https://github.com/anibaldogamer/Proyecto_AquaChile.git
+git clone https://github.com/anibaldogamer/Proyecto_AquaChile
 ```
 
 Ingresar a la carpeta del proyecto:
@@ -225,9 +295,10 @@ cd Proyecto_AquaChile
 
 ### Ejecutar el backend
 
-Desde la carpeta del backend, ejecutar:
+Desde la carpeta del backend:
 
 ```powershell
+cd aquachile-backend
 .\mvnw.cmd spring-boot:run
 ```
 
@@ -235,14 +306,25 @@ El backend utiliza el puerto `8080` por defecto.
 
 Antes de ejecutarlo, se deben configurar las credenciales de conexión a PostgreSQL y las variables de entorno requeridas por la aplicación.
 
-**Importante:** no se deben compartir contraseñas ni credenciales privadas en el repositorio.
+**Importante:** no se comparten contraseñas ni credenciales privadas en este repositorio.
 
 ### Ejecutar el frontend
 
-Desde la carpeta del frontend, ejecutar:
+Desde otra terminal, ingresar a la carpeta del frontend:
 
-```bash
+```powershell
+cd aquachile-app
+```
+
+Instalar las dependencias:
+
+```powershell
 npm install
+```
+
+Iniciar el servidor de desarrollo:
+
+```powershell
 npm run dev
 ```
 
@@ -254,6 +336,20 @@ http://localhost:5173
 
 El frontend utiliza la configuración de proxy de Vite para comunicarse con el backend durante el desarrollo local.
 
+### Ejecutar las pruebas del frontend
+
+Desde la carpeta `aquachile-app`, ejecutar:
+
+```powershell
+npx vitest run
+```
+
+Para generar el informe de cobertura:
+
+```powershell
+npx vitest run --coverage
+```
+
 ## 11. Estado actual del proyecto
 
 El proyecto cuenta con una primera versión funcional que integra frontend, backend y base de datos.
@@ -262,11 +358,19 @@ Se encuentran implementados y probados:
 
 - Registro interno de candidatos.
 - Consulta de solicitudes.
+- Dashboard de gestión de reclutamiento y selección.
+- Indicadores de solicitudes por estado.
+- Consulta y filtrado de solicitudes.
+- Resumen de postulaciones externas.
 - Autenticación de usuarios.
 - Control de acceso según roles.
 - Actualización de estados por parte del evaluador.
 - Restricción de modificación de estados para el analista.
 - Registro de auditoría de los cambios realizados.
+- Formulario de postulación pública.
+- Pruebas automatizadas generales del frontend.
+
+Se organizaron las pruebas automatizadas en archivos independientes dentro de `src/test/`, obteniendo un resultado de **10 pruebas aprobadas en 5 archivos de prueba**.
 
 El sistema continúa en desarrollo, por lo que algunas funcionalidades y procesos de administración se encuentran sujetos a futuras mejoras e integración.
 
@@ -278,33 +382,37 @@ A continuación, se presentan algunas vistas de la aplicación desarrollada, que
 
 Pantalla de acceso al sistema para los usuarios internos.
 
-![Inicio de sesión](./AquaChile/AVANCES-AQUACHILE/inicio_de_sesion.png)
+![Inicio de sesión](./AVANCES-AQUACHILE/inicio_de_sesion.png)
 
 ### 12.2. Panel de control
 
 Vista principal del sistema, donde se centraliza la información de los candidatos y las solicitudes de evaluación.
 
-![Dashboard principal](./AquaChile/AVANCES-AQUACHILE/dashboard_1.png)
+![Dashboard principal](./AquaChile/AVANCES-AQUACHILE/dashboard_1.2.png)
 
-Vista complementaria del panel de control y sus registros.
+![Dashboard - Vista de solicitudes](./AquaChile/AVANCES-AQUACHILE/dashboard_2.2.png)
 
-![Dashboard - Vista de solicitudes](./AquaChile/AVANCES-AQUACHILE/dashboard_2.png)
+![Dashboard - Solicitudes por familia de cargo](./AquaChile/AVANCES-AQUACHILE/dashboard_3.2.png)
 
-Otra vista del dashboard con información de gestión.
+Vista del listado de solicitudes, información de candidatos y gestión de estados.
 
-![Dashboard - Vista complementaria](./AquaChile/AVANCES-AQUACHILE/dashboard_3.png)
+![Dashboard - Vista de solicitudes](./AVANCES-AQUACHILE/dashboard_2.png)
+
+Vista de solicitudes agrupadas por familia de cargo y sus indicadores de distribución.
+
+![Dashboard - Solicitudes por familia de cargo](./AVANCES-AQUACHILE/dashboard_3.png)
 
 ### 12.3. Registro interno de candidatos
 
 Formulario utilizado por el personal de Reclutamiento y Selección para ingresar nuevos candidatos al sistema.
 
-![Formulario de registro interno](./AquaChile/AVANCES-AQUACHILE/formulario_registro.png)
+![Formulario de registro interno](./AVANCES-AQUACHILE/formulario_registro.png)
 
 ### 12.4. Postulación pública
 
 Interfaz destinada a las personas interesadas en postular a oportunidades laborales en AquaChile.
 
-![Formulario de postulación pública](./AquaChile/AVANCES-AQUACHILE/formulario_publico.png)
+![Formulario de postulación pública](./AVANCES-AQUACHILE/formulario_publico.png)
 
 ## 13. Conclusión
 

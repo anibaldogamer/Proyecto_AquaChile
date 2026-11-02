@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
@@ -288,8 +287,8 @@
   border: 1px solid var(--aqua-blue);
   border-radius: 2px;
 
-  background: white;
-  color: var(--aqua-blue);
+  background: var(--aqua-blue);
+  color: white;
 
   font-family: inherit;
   font-size: 10px;
@@ -488,13 +487,16 @@
 }
 
 .dashboard-error button {
-  border: none;
-  background: transparent;
-  color: #8F302B;
+  border: 1px solid var(--aqua-blue);
+  border-radius: 4px;
+  padding: 6px 12px;
+  background: var(--aqua-blue);
+  color: white;
   font-family: inherit;
+  font-size: 10px;
   font-weight: 600;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* PIE DE PÁGINA */
